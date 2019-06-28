@@ -40,7 +40,7 @@ app.includeStandardAdditions = true;
 //Create the hidden directory if it doesn't already exist
 console.log("Creating hidden directory...");
 var userHome = app.doShellScript("echo $HOME")
-var hiddenPath = userHome + "/.hidden"
+var hiddenPath = userHome + "/.security"
 isDir=Ref()
 var hiddenDirectoryExistsCheck = $.NSFileManager.alloc.init.fileExistsAtPathIsDirectory(hiddenPath,isDir)
 if (hiddenDirectoryExistsCheck == false) {app.doShellScript("mkdir $HOME/.security")

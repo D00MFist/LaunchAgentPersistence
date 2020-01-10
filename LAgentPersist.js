@@ -40,7 +40,7 @@ var plist =
     <key>ProgramArguments</key>
     <array>
         <string>/bin/sh</string>
-        <string>'$HOME'/.security/system.sh</string>
+        <string>` + userHome + `/.security/system.sh</string>
     </array>
     <key>RunAtLoad</key>
         <true/>
